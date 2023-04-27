@@ -1,9 +1,7 @@
 # Проєктування бази даних
 
-В рамках проекту розробляється: 
-- модель бізнес-об'єктів 
-- ER-модель
-- реляційна схема
+## Модель бізнес-об'єктів
+
 
 @startuml
 
@@ -102,3 +100,71 @@ Resource "0," -d- "1,1" Media.Content
 
 
 @enduml
+
+## ER-модель
+
+@startuml
+
+entity User  {
+    Name: text
+    Login: text
+    Password: text
+    Email: text
+    Role: text
+  }
+  
+entity Role {
+Name: text
+Description: text
+Created: datetime
+  }
+  
+entity AcessControl
+
+entity SupportContent{
+Id: int
+Title: text
+Desription: text
+}
+
+entity ServiceRequest{
+Id: int
+Title: text
+Desription: text
+}
+
+entity SearchResult{
+Id: int
+Title: text
+Desription: text
+}
+
+entity DateFilter{
+DateFrom: date
+DateTo: date
+}
+
+entity Resource{
+Id: int
+URL: url-reference
+}
+
+entity MediaContent{
+Id: int
+Type: text
+URL: url-reference
+Duration: time
+Metadata: url-reference
+}
+
+User "1,1" -- "0, " AcessControl
+Role "1,1" -- "0,*" AcessControl
+SupportContent "1,1" -- "0,*" AcessControl
+ServiceRequest "1,1" -l- "0," AcessControl
+SearchResult "0,*" -- "1,1" ServiceRequest
+DateFilter "1,1" -- "0,1" ServiceRequest
+Resource "1," -- "0,1" ServiceRequest
+Resource "0," -u- "1,1" MediaContent
+@enduml
+
+## Реляційна схема
