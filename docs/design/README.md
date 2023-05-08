@@ -6,13 +6,13 @@
 @startuml
 
 entity User
-entity User.Name
+entity User.Id
 entity User.Login
 entity User.Password
 entity User.Email
 entity User.Role
 
-User.Name --* User
+User.Id --* User
 User.Login --* User
 User.Password --* User
 User.Email --* User
@@ -106,7 +106,7 @@ Resource "0," -d- "1,1" Media.Content
 @startuml
 
 entity User  {
-    Name: text
+    Id: int
     Login: text
     Password: text
     Email: text
@@ -168,3 +168,5 @@ Resource "0," -u- "1,1" MediaContent
 @enduml
 
 ## Реляційна схема
+
+![alt text](./EER.PNG)
