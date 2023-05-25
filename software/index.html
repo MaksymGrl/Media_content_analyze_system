@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Реалізація інформаційного та програмного забезпечення | Система аналізу медіа-контенту</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/Media_content_analyze_system/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Лабораторні роботи з дисципліни &quot;Організація баз даних&quot;">
+    
+    <link rel="preload" href="/Media_content_analyze_system/assets/css/0.styles.0b9c2ec7.css" as="style"><link rel="preload" href="/Media_content_analyze_system/assets/js/app.7e635f8c.js" as="script"><link rel="preload" href="/Media_content_analyze_system/assets/js/2.7fe11fb6.js" as="script"><link rel="preload" href="/Media_content_analyze_system/assets/js/10.c0c923c8.js" as="script"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/11.178a1039.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/12.376fa65e.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/13.5e45632c.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/14.48c56413.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/15.ec781f32.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/16.1431c89f.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/17.b341393f.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/18.51e08a2f.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/19.3222594f.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/20.9ff46ac9.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/21.d7cf81a7.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/22.4d042e96.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/23.36dd0921.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/24.97b9bd5a.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/25.438e3d6b.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/26.d4420a7c.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/3.c214fb88.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/4.f4e3418f.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/5.009de7c3.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/6.8454de80.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/7.ff940653.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/8.7fa37b39.js"><link rel="prefetch" href="/Media_content_analyze_system/assets/js/9.064b84aa.js">
+    <link rel="stylesheet" href="/Media_content_analyze_system/assets/css/0.styles.0b9c2ec7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Media_content_analyze_system/" class="home-link router-link-active"><!----> <span class="site-name">Система аналізу медіа-контенту</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Media_content_analyze_system/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/MaksymGrl/Media_content_analyze_system" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Media_content_analyze_system/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/MaksymGrl/Media_content_analyze_system" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/Media_content_analyze_system/intro/" class="sidebar-link">Вступ</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/Media_content_analyze_system/requirements/" class="sidebar-heading clickable"><span>Розроблення загальних вимог до системи</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/Media_content_analyze_system/use%20cases/" class="sidebar-link">Розроблення вимог до функціональности системи</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/use%20cases/#загальна-схема" class="sidebar-link">Загальна схема</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/use%20cases/#діаграми-прецедентів" class="sidebar-link">Діаграми прецедентів</a></li></ul></li><li><a href="/Media_content_analyze_system/design/" class="sidebar-link">Проектування інформаційного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/design/#модель-бізнес-об-єктів" class="sidebar-link">Модель бізнес-об'єктів</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/design/#er-модель" class="sidebar-link">ER-модель</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/design/#реляціина-схема" class="sidebar-link">Реляційна схема</a></li></ul></li><li><a href="/Media_content_analyze_system/software/" aria-current="page" class="active sidebar-link">Реалізація інформаційного та програмного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/software/#sql-скрипт-для-створення-бд" class="sidebar-link">SQL-скрипт для створення БД:</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/software/#початкове-наповнення-бази-даних" class="sidebar-link">Початкове наповнення бази даних</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/software/#restfull-сервіс-для-управління-даними" class="sidebar-link">RESTfull сервіс для управління даними</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/software/#налаштування-django-сервера" class="sidebar-link">Налаштування Django сервера:</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/software/#моделі-для-взаємодііі-з-бд" class="sidebar-link">Моделі для взаємодіїї з БД:</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/software/#реалізація-rest-сервісу" class="sidebar-link">Реалізація REST сервісу:</a></li></ul></li></ul></li><li><a href="/Media_content_analyze_system/test/" class="sidebar-link">Тестування працездатності системи</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/test/#система-реєстарціі" class="sidebar-link">Система реєстарції</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/test/#система-авторизаціі" class="sidebar-link">Система авторизації</a></li><li class="sidebar-sub-header"><a href="/Media_content_analyze_system/test/#система-обробки-медіаданих" class="sidebar-link">Система обробки медіаданих:</a></li></ul></li><li><a href="/Media_content_analyze_system/conclusion/" class="sidebar-link">Висновки</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="реалізація-інформаціиного-та-програмного-забезпечення"><a href="#реалізація-інформаціиного-та-програмного-забезпечення" class="header-anchor">#</a> Реалізація інформаційного та програмного забезпечення</h1> <h2 id="sql-скрипт-для-створення-бд"><a href="#sql-скрипт-для-створення-бд" class="header-anchor">#</a> SQL-скрипт для створення БД:</h2> <div class="language- extra-class"><pre class="language-text"><code>    -- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`timestamps`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`timestamps` (
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` TIMESTAMP NULL);
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`User`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Login` TEXT NOT NULL,
+  `Password` TEXT NOT NULL,
+  `Email` TEXT NOT NULL,
+  `Role` TEXT NOT NULL,
+  PRIMARY KEY (`Id`));
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`MediaContent`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`MediaContent` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Type` TEXT NOT NULL,
+  `URL` TEXT NOT NULL,
+  `Duration` TIME NULL,
+  `Metadata` TEXT NOT NULL,
+  PRIMARY KEY (`Id`));
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Resource`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Resource` (
+  `Id` INT NOT NULL,
+  `URL` TEXT NOT NULL,
+  `MediaContent_Id` INT NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_Resource_MediaContent1_idx` (`MediaContent_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_Resource_MediaContent1`
+    FOREIGN KEY (`MediaContent_Id`)
+    REFERENCES `mydb`.`MediaContent` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`SearchResult`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`SearchResult` (
+  `Id` INT NOT NULL,
+  `Title` TEXT NOT NULL,
+  `Description` TEXT NOT NULL,
+  PRIMARY KEY (`Id`));
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`DateFilter`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`DateFilter` (
+  `DateFrom` DATE NOT NULL,
+  `DateTo` DATE NOT NULL,
+  PRIMARY KEY (`DateFrom`));
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`ServiceRequest`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`ServiceRequest` (
+  `Id` INT NOT NULL,
+  `Title` TEXT NOT NULL,
+  `Description` TEXT NOT NULL,
+  `Resource_Id` INT NOT NULL,
+  `SearchResult_Id` INT NOT NULL,
+  `DateFilter_DateFrom` DATE NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_ServiceRequest_Resource1_idx` (`Resource_Id` ASC) VISIBLE,
+  INDEX `fk_ServiceRequest_SearchResult1_idx` (`SearchResult_Id` ASC) VISIBLE,
+  INDEX `fk_ServiceRequest_DateFilter1_idx` (`DateFilter_DateFrom` ASC) VISIBLE,
+  CONSTRAINT `fk_ServiceRequest_Resource1`
+    FOREIGN KEY (`Resource_Id`)
+    REFERENCES `mydb`.`Resource` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ServiceRequest_SearchResult1`
+    FOREIGN KEY (`SearchResult_Id`)
+    REFERENCES `mydb`.`SearchResult` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ServiceRequest_DateFilter1`
+    FOREIGN KEY (`DateFilter_DateFrom`)
+    REFERENCES `mydb`.`DateFilter` (`DateFrom`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`SupportContent`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`SupportContent` (
+  `Id` INT NOT NULL,
+  `Title` TEXT NOT NULL,
+  `Description` TEXT NOT NULL,
+  PRIMARY KEY (`Id`));
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Role` (
+  `Id` INT NOT NULL,
+  `Description` TEXT NOT NULL,
+  `Created` DATETIME NOT NULL,
+  PRIMARY KEY (`Id`));
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`AcessControl`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`AcessControl` (
+  `User_Id` INT NOT NULL,
+  `ServiceRequest_Id` INT NOT NULL,
+  `SupportContent_Id` INT NOT NULL,
+  `Role_Id` INT NOT NULL,
+  INDEX `fk_AcessControl_User1_idx` (`User_Id` ASC) VISIBLE,
+  INDEX `fk_AcessControl_ServiceRequest1_idx` (`ServiceRequest_Id` ASC) VISIBLE,
+  INDEX `fk_AcessControl_SupportContent1_idx` (`SupportContent_Id` ASC) VISIBLE,
+  INDEX `fk_AcessControl_Role1_idx` (`Role_Id` ASC) VISIBLE,
+  CONSTRAINT `fk_AcessControl_User1`
+    FOREIGN KEY (`User_Id`)
+    REFERENCES `mydb`.`User` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_AcessControl_ServiceRequest1`
+    FOREIGN KEY (`ServiceRequest_Id`)
+    REFERENCES `mydb`.`ServiceRequest` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_AcessControl_SupportContent1`
+    FOREIGN KEY (`SupportContent_Id`)
+    REFERENCES `mydb`.`SupportContent` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_AcessControl_Role1`
+    FOREIGN KEY (`Role_Id`)
+    REFERENCES `mydb`.`Role` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Placeholder table for view `mydb`.`view1`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`view1` (`id` INT);
+
+-- -----------------------------------------------------
+-- View `mydb`.`view1`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mydb`.`view1`;
+USE `mydb`;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+</code></pre></div><h2 id="початкове-наповнення-бази-даних"><a href="#початкове-наповнення-бази-даних" class="header-anchor">#</a> Початкове наповнення бази даних</h2> <p><img src="/Media_content_analyze_system/assets/img/insert1.3abb6e43.png" alt="alt text"> <img src="/Media_content_analyze_system/assets/img/insert2.79c084e4.png" alt="alt text"></p> <h2 id="restfull-сервіс-для-управління-даними"><a href="#restfull-сервіс-для-управління-даними" class="header-anchor">#</a> RESTfull сервіс для управління даними</h2> <p>Сервіс реалізован з використанням Django REST framework.</p> <h3 id="налаштування-django-сервера"><a href="#налаштування-django-сервера" class="header-anchor">#</a> Налаштування Django сервера:</h3> <div class="language- extra-class"><pre class="language-text"><code>from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-4!770zs05^b4)%9#x=d-6en(d8kd&amp;ziw9krtnm%ut3!hk&amp;7+8f'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'mcas',
+    'django_filters',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ROOT_URLCONF = 'mcas.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'mcas.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',
+        'USER': 'root',
+        'PASSWORD': 'S,.Kz@:?=nF2kh2',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+
+# Password validation
+# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_TZ = True
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_URL = 'static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>from django.contrib import admin
+from django.urls import path,include
+from rest_framework.routers import DefaultRouter
+from .views import MediaContentViewSet,RegisterView, LoginView
+
+router = DefaultRouter()
+router.register(r'mediacontent', MediaContentViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('login/', LoginView.as_view(), name='login'),
+]
+
+
+</code></pre></div><h3 id="моделі-для-взаємодііі-з-бд"><a href="#моделі-для-взаємодііі-з-бд" class="header-anchor">#</a> Моделі для взаємодіїї з БД:</h3> <div class="language- extra-class"><pre class="language-text"><code>from django.db import models
+
+class User(models.Model):
+    Id = models.AutoField(primary_key=True)
+    login = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    email = models.EmailField()
+    role = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'user'
+        
+class MediaContent(models.Model):
+    Id = models.AutoField(primary_key=True)
+    Type = models.TextField(max_length=255)
+    URL = models.TextField(max_length=255)
+    Duration = models.TimeField()
+    Metadata = models.TextField()
+
+    class Meta:
+        db_table = 'mediacontent'
+</code></pre></div><h3 id="реалізація-rest-сервісу"><a href="#реалізація-rest-сервісу" class="header-anchor">#</a> Реалізація REST сервісу:</h3> <div class="language- extra-class"><pre class="language-text"><code>from rest_framework import viewsets
+from rest_framework import filters
+from .models import MediaContent
+from .models import User
+from .serializers import MediaContentSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.db import IntegrityError
+
+class MediaContentViewSet(viewsets.ModelViewSet):
+    queryset = MediaContent.objects.all()
+    serializer_class = MediaContentSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['Metadata']
+
+
+
+class RegisterView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        email = request.data.get('email')
+        role = request.data.get('role')
+        
+        if not username or not password or not email or not role:
+            return Response(
+                data={
+                    &quot;message&quot;: &quot;username, password, email and role are required to register a user&quot;
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        try:
+            user = User.objects.get(login=username)
+            return Response(
+            data={
+                &quot;message&quot;: &quot;A user with this username already exists.&quot;
+             },
+            status=status.HTTP_400_BAD_REQUEST
+        )
+        except User.DoesNotExist:
+            user = User.objects.create(login=username, password=password, email=email, role=role)
+            return Response(data={
+            &quot;message&quot;: &quot;User registered successfully&quot;
+        }, status=status.HTTP_201_CREATED)
+    
+        
+        
+    
+class LoginView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        
+        if not username or not password:
+            return Response(
+                data={
+                    &quot;message&quot;: &quot;username and password is required to login a user&quot;
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        try:
+            user = User.objects.get(login=username)
+            if user.password != password:
+                raise User.DoesNotExist
+        except User.DoesNotExist:
+            return Response(
+                data={
+                    &quot;message&quot;: &quot;Invalid username or password&quot;
+                },
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        #login(request, user)
+        return Response(data={
+            &quot;message&quot;: &quot;User logged in successfully&quot;
+        }, status=status.HTTP_200_OK)
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>from rest_framework import serializers
+from .models import MediaContent
+
+class MediaContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MediaContent
+        fields = ['Id', 'Type', 'URL', 'Duration', 'Metadata']
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Останнє оновлення:</span> <span class="time">1/13/2022, 12:59:06 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Media_content_analyze_system/design/" class="prev">
+        Проектування інформаційного забезпечення
+      </a></span> <span class="next"><a href="/Media_content_analyze_system/test/">
+        Тестування працездатності системи
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/Media_content_analyze_system/assets/js/app.7e635f8c.js" defer></script><script src="/Media_content_analyze_system/assets/js/2.7fe11fb6.js" defer></script><script src="/Media_content_analyze_system/assets/js/10.c0c923c8.js" defer></script>
+  </body>
+</html>
