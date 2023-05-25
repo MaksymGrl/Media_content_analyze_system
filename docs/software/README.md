@@ -188,8 +188,8 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ```
 ## Початкове наповнення бази даних
-![alt text](./insert1.png)
-![alt text](./insert2.png)
+![alt text](./insert1.PNG)
+![alt text](./insert2.PNG)
 
 ## RESTfull сервіс для управління даними
 Сервіс реалізован з використанням Django REST framework.
